@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: #000;
+    color: #95a4b8;
+}
+
+/* Contenedor general de signup: */
+.container-signup {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 60%;
+    height: 80%;
+    padding: 0;
+    margin-top: 80px;
+    box-shadow: 0 0 20px 0 rgba(105, 123, 184, 0.3);
+}
+/* Lado izquierdo del contenedor signup: */
+.form-side-left {
+    width: 100%;
+}
+/* imagen... */
+.form-side-left img {
+    width: 100%;
+    height: 100%;
+}
+/* Lado derecho del contenedor del signup */
+.form-side-right {
+    background-color: #2d3c4f;
+    width: 100%;
+    padding: 0;
+}
+/* "BOTON" signin signup: */
+.form-side-right .s-left, .form-side-right .s-right {
+    display: inline;
+    padding: 0 3px;
+    font-size: .7em;
+}
+.form-side-right .s-left {
+    background-color: #232e3b;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding: 3px 5px;
+}
+.form-side-right .s-right {
+    background-color: #000000;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 3px 5px;
+}
+.form-side-right .signinup {
+    float: inline-end;
+    border-radius: 10px;
+    margin: 0.5em;
+    font-family: 'Roboto', sans-serif;
+    /* padding: 0 5px; */
+}
+/* DE LLENO CON EL FORMULARIO: */
+.form-side-right form {
+    width: 80%;
+    height: 70%;
+    margin: 15% auto;
+    font-family: 'Roboto', sans-serif;
+}
+/* Links de signin y signup  */
+.form-side-right .links-sign {
+    margin-bottom: 25px;
+}
+.links-sign a {
+    color: #dfdbdb;
+    text-decoration: underline;
+}
+.links-sign a:hover {
+    color: #535b66;
+    text-decoration: underline;
+}
+.links-sign .signin {
+    padding-right: 5px;
+}
+.links-sign .signup {
+    padding-left: 5px;
+}
+/* labels, inputs, boton... */
+.form-side-right form label {
+    font-size: .85em;
+    margin: 0;
+}
+.form-side-right form input {
+    width: 100%;
+    font-size: .85em;
+    background-color: inherit;
+    color: #77808d;
+    padding: .6em;
+    margin-bottom: 1em;
+    border: 0;
+    border-bottom: 1px solid #535b66;
+}
+/* .form-side-right form input:required {
+    outline: 0;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid blue;
+} */
+.check-password {
+    display: flex;
+}
+.check-password a {
+    padding: 0;
+    color: #dfdbdb;
+    padding: 0 0 5px 0;
+    font-size: .8em;
+}
+.check-password a:hover {
+    color: #818181;
+}
+/* boton */
+.form-side-right form button {
+    background-color:  #7fb3d5;
+    color: #4b4a4a;
+    border: none;
+    width: 50%;
+    padding: 3px 0;
+    border-radius: 15px;
+    font-size: .95em;
+}
+.form-side-right form button:hover {
+    background-color:  #648eaa;
+    color: #4b4a4a;
+}
+
+@media screen and (max-width: 991.98px) {
+    .container-signup {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* grid-column: 1/2; */
+    }
+    .form-side-left {
+        order: 1;
+    }
+    .form-side-right {
+        order: 0;
+    }
+}
+@media screen and (max-width: 575.98px) {
+    .container-signup {
+        display: grid;
+        grid-template-columns: 1fr;
+        /* grid-column: 1/2; */
+    }
+    .form-side-left {
+        order: 1;
+    }
+    .form-side-right {
+        order: 0;
+    }
+    .form-side-right form button {
+        width: 100%;
+    }
+}
