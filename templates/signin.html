@@ -1,8 +1,7 @@
 {% extends 'base/base.html' %}
-
-{% block title %}Sing Up{% endblock title %}
+{% block title %}Sign In{% endblock title %}
 
 {% block content %}
     {% from '_macro.html' import form with context %}
-        {{ form(True) }}
+        {{ form(False) }}
 {% endblock content %}

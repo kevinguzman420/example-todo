@@ -1,0 +1,43 @@
+{% macro form(form) %}
+    <div class="container container-signup">
+        <div class="form-side-left">
+            <img src="../static/img/universe.jpg" alt="universe.jpg">
+        </div>
+        
+        <div class="form-side-right">
+            <div class="signinup">
+                <p class="s-left">Sign Up</p><p class="s-right">Sign In</p>
+            </div>
+            <form action="">
+                <p class="links-sign">
+                    <a class="signin" href="{{ url_for('signin') }}">Sign In</a>
+                    or
+                    <a class="signup" href="{{ url_for('signup') }}">Sign Up</a>
+                </p>
+                <!-- Condición para saber si es SIGNUP O SIGNIN: -->
+                {% if form %}
+                    <div>
+                        <label for="username">USERNAME:</label> <br>
+                        <input type="text" placeholder="Enter your username" required>
+                    </div>
+                {% endif %}
+                <!-- Fin de la condición -->
+                <div>
+                    <label for="emal">EMAIL:</label><br>
+                    <input type="email" placeholder="example@domain.com" required>
+                </div>
+                <div>
+                    <label for="password">PASSWORD:</label><br>
+                    <input type="password" placeholder="********" required>
+                </div>
+                <div class="check-password">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                <div>
+                    <button type="submit">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endmacro %}
+

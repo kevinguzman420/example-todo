@@ -67,6 +67,8 @@ body {
 /* Links de signin y signup  */
 .form-side-right .links-sign {
     margin-bottom: 25px;
+    display: flex;
+    justify-content: start;
 }
 .links-sign a {
     color: #dfdbdb;
@@ -158,4 +160,8 @@ body {
     .form-side-right form button {
         width: 100%;
     }
+    .form-side-right form  .links-sign {
+        display: grid;
+    }
+
 }
