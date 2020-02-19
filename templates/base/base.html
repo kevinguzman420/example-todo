@@ -11,8 +11,13 @@
 
 </head>
 <body>
+    {% block navbar %}
+        {% from '_macro.html' import navbar %}
+            {{ navbar() }}
+    {% endblock navbar %}
+
+
     {% block content %}
-    
     {% endblock content %}
 <!-- 
     {% for message in get_flashed_messages() %}
