@@ -205,9 +205,9 @@ body {
 #i-col-date-end .data-end-info {
     margin: 0;
 }
-/* #i-col-priority {
-    border: 1px solid red;
-} */
+#i-col-info {
+    cursor: pointer;
+}
 #i-col-priority p {
     margin: 20% auto;
     height: 0%;
@@ -254,3 +254,204 @@ body {
     background-color: #ae0000;
     color: rgb(196, 196, 196);
 }
+
+/* @media screen and (max-width:768.98px) {
+
+    .col-header-3,
+    .col-header-4,
+    .col-header-5,
+    .col-header-6,
+    .col-header-7 {
+        display: none;
+    }
+
+} */
+
+
+
+
+/* CREATE A NEW TASK DISIGNE */
+.container-create-task {
+    width: 50%;
+    margin: .3em auto;
+    background-color: #221f1f;
+    box-shadow: 0 0 28px 16px rgba(79, 62, 21, .3);
+}
+.title-new-task h3 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 1em 0;
+    font-weight: 100px;
+    text-align: center;
+    color: #ffffff;
+}
+.form-new-task {
+    padding: 2em;
+    padding-top: 0;
+}
+.form-new-task form label {
+    text-transform: uppercase;
+    font-size: .85em;
+}
+.form-new-task form label::after {
+    content: ":";
+}
+.form-title input,
+.form-description textarea {
+    background-color: inherit;
+    color: #798797;
+    border: none;
+    border-bottom: 1px dotted #8b9cb1;
+    font-size: .9em;
+    margin-left: .3em;
+    padding: .4em;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}
+.form-title input {
+    width: 50%;
+}
+.form-title input:hover,
+.form-description textarea:hover {
+    border: 1px solid #8b9cb1;
+}
+.form-description {
+    width: 100%;
+    display: flex;
+}
+.form-description textarea {
+    min-width: 84%;
+    max-height: 4em;
+
+}
+.dates {
+    display: block;
+    border: 1px solid #5c5b5b;;
+    margin: 1em;
+    padding: 1em;
+    border-radius: .3em;
+}
+.dates small {
+    text-transform: uppercase;
+    font-size: .7em;
+    color: #5c5b5b;
+}
+.dates .cont-date{
+    display: flex;
+    justify-content: space-around;
+}
+.dates .cont-date input,
+.dates #time input {
+    background-color: #1c2530;
+    border: none;
+    color: #6b98b6;
+    border-radius: .3em;
+    padding: .1em 0;
+}
+.dates .cont-date input:hover,
+.dates #time input:hover,
+.dates .cont-cat-pri select {
+    cursor: pointer;
+}
+.dates div div input[type="date"],
+.dates #time input,
+.dates .cont-cat-pri select {
+    margin-left: .5em;
+}
+.dates .cont-cat-pri {
+    display: flex;
+    justify-content: space-around;
+}
+.dates #time {
+    padding-left: 3em;
+}
+.dates .cont-cat-pri select {
+    width: 49%;
+}
+.cont-button {
+    text-align: center;
+}
+#button-create-task {
+    width: 50%;
+    border: none;
+    background-color: #232e3b;
+    color: #648eaa;
+    border-radius: .3em;
+    padding: .2em 0;
+    transition: .2s;
+}
+#button-create-task:hover {
+    background-color: #1c2530;
+    color: #6b98b6;
+    text-decoration: underline;
+}
+
+@media screen and (max-width: 992px) {
+    .title-new-task h3 {
+        text-align: left;
+        margin-left: 2em;
+        /* padding-top: 2em; */
+    }
+    .form-description,
+    .form-title {
+        display: grid;
+        grid-template-columns: 1fr;
+        width: 100%;
+        padding: 0 1em;
+    }
+    .form-title input {
+        width: 100%;
+    }
+    .form-description textarea {
+        /* max-width: 100%; */
+    }
+    .dates {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .dates > p, .dates .cont-date {
+        grid-column: span 2;
+    }
+    .dates .cont-date div label {
+        margin-left: .5em;
+    }
+    .dates #time {
+        padding: 0;
+    }
+    .dates .cont-cat-pri {
+        width: 200%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .dates .cont-cat-pri .category ,
+    .dates .cont-cat-pri .priority  {
+        width: 100%;   
+        padding: 0 5px; 
+    }
+    .dates .cont-cat-pri .category select, 
+    .dates .cont-cat-pri .priority select {
+        width: 100%;
+        margin-left: 0;
+    }
+    .dates .cont-cat-pri div label {
+        display: block;
+    }
+    #button-create-task {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 855px) {
+    .container-create-task {
+        width: 60%;
+}
+@media screen and (max-width: 768px) {
+    .container-create-task {
+        width: 70%;
+}
+@media screen and (max-width: 605px) {
+    .container-create-task {
+        width: 80%;
+}
+/* END DISIGN CREATE A NEW TASK */

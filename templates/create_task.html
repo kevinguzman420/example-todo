@@ -1,0 +1,74 @@
+{% extends 'base/base.html' %}
+{% block title %}Create Task{% endblock title %}
+
+{% block content %}
+    <div class="container-create-task">
+        <div class="title-new-task">
+            <h3>Create a new task</h3>
+        </div>
+        <div class="form-new-task">
+            <form method="POST">
+                <div class="form-title">
+                    <label for="title-task">Enter Title</label>
+                    <input type="text" placeholder="Enter the title task">
+                </div>
+                <div class="form-description">
+                    <label for="">Enter a Litle Description</label>
+                    <textarea name="description-task" id="" cols="30" rows="10" placeholder="Enter a description of task of remember the task"></textarea>
+                </div>
+                <div class="dates">
+                    <p><small>Provide the date</small></p>
+                    <div class="cont-date">
+                        <div>
+                            <label for="">Date Start</label>
+                            <input type="date" id="start" name="trip-start" value="2018-01-01" min="2018-01-01" max="2018-12-31">
+                        </div>
+                        <div>
+                            <label for="">Date End</label>
+                            <input type="date" id="end" name="trip-start" value="2018-01-01" min="2018-01-01" max="2018-12-31">
+                        </div>
+                    </div>
+                </div>
+                <div class="dates">
+                    <div id="time">
+                        <label for="">Hour Start</label>
+                        <input type="time">
+                    </div>
+                </div>
+                <div class="dates container-c-p">
+                    <div class="cont-cat-pri">
+                        <div class="category">
+                            <label for="">Category</label>
+                            <select name="" id="">
+                                <option value="volvo">Volvo</option>
+                                <option value="saab">Saab</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="audi">Audi</option>
+                            </select>
+                        </div>
+                        <div class="priority">
+                            <label for="">Priority</label>
+                            <select name="" id="">
+                                <option value="volvo">High</option>
+                                <option value="saab">Medium</option>
+                                <option value="fiat">Down</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont-button">
+                    <button type="submit" id="button-create-task">Create Task</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        let date = document.getElementById("start");
+        let f = new Date();
+        let fecha = f.getDate() + "-" + parseInt(f.getMonth()+1) + "-" + f.getFullYear();
+        //alert(fecha);
+        date.setAttribute("value", fecha);
+    </script>
+{% endblock content %}
