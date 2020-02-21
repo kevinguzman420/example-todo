@@ -404,9 +404,6 @@ body {
     .form-title input {
         width: 100%;
     }
-    .form-description textarea {
-        /* max-width: 100%; */
-    }
     .dates {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -445,13 +442,58 @@ body {
 @media screen and (max-width: 855px) {
     .container-create-task {
         width: 60%;
+    }
 }
 @media screen and (max-width: 768px) {
     .container-create-task {
         width: 70%;
+    }
 }
 @media screen and (max-width: 605px) {
     .container-create-task {
         width: 80%;
+    }
 }
 /* END DISIGN CREATE A NEW TASK */
+
+
+
+
+
+/* START DISIGN ACCOUNT USER */
+.container-account {
+    border: 1px solid red;
+    width: 90%;
+    height: 90%;
+    margin: 1em auto;
+}
+.container-img {
+    width: 18em;
+    height: 18em;
+    display: flex;
+    float: left;
+    border: 1px solid #2d3c4f;
+    margin: .3em;
+    border-radius: 5px;
+}
+.cont-general {
+    margin: 0 auto;
+}
+.container-photo {
+    margin-bottom: 5px;
+}
+.container-photo img {
+    text-align: center;
+    width: 17em;
+    height: 13em;
+    text-align: center;
+}
+.container-info {
+    /* border: 1px solid white; */
+    height: 4em;
+}
+.container-info p {
+    margin: 0 0 10px 0;
+    font-size: .8em;
+}
+/* END DISIGN ACCOUNT USER */
