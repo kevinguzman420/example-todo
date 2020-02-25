@@ -1,5 +1,7 @@
 from flask import render_template
 # from .forms import PostForm
+from .models import UserCat, Category, Task, Priority
+from app.models import Binnacle
 import json
 
 from . import public_bp
@@ -20,5 +22,5 @@ def create_task():
 
 @public_bp.route('/user/account/', methods=['GET', 'POST'])
 def account_user():
-    # form = PostForm()
-    return render_template("public/user_account.html")
+    
+    return render_template("public/user_account.html", form=form)

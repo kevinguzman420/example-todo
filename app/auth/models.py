@@ -4,22 +4,23 @@ AUTOR: Gkvn
 DATE CREATION: 21/2/2020
 
 """
-# from flask_login import UserMixin
-# from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
 
-# from app import db
+from app import db
 
 
-# class User(db.Model, UserMixin):
+class User(db.Model, UserMixin):
 
-    __tablename__ = 'blog_user'
+    __tablename__ = 'task_user'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80), nullable=False)
+    username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(256), unique=True, nullable=False)
     password = db.Column(db.String(128), nullable=False)
-    is_admin = db.Column(db.Boolean, default=False)
-
+    # This table has a relation with the table "UserCat":
+    usucat = db.relationship("UserCat", backref="task_user", lazy=False)
+    
     def __init__(self, name, email):
         self.name = name
         self.email = email

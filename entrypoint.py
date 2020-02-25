@@ -15,4 +15,10 @@ import os
 # def media_posts(filename):
 #     dir_path = os.path.join(app.config["MEDIA_DIR"], app.config["POSTS_IMAGES_DIR"])
 #     return send_from_directory(dir_path, filename)
+
 app = create_app()
+# cli = FlaskGroup(create_app())
+# @cli.command("recreate_db")
+# def recreate_db():
+#     db.drop_all()
+#     db.create_all()
