@@ -228,8 +228,9 @@ body {
 }
 #i-col-delete-modify {
     padding-top: .5em;
+    text-align: center;
 }
-#i-col-delete-modify button {
+#i-col-delete-modify a {
     display: block;
     width: 80%;
     margin: .8em auto;
@@ -239,6 +240,7 @@ body {
     font-weight: bold;
     border: none;
     transition: .2s;
+    text-align: center;
 }
 .i-col-dm-btn-edit {
     background-color: #00f;

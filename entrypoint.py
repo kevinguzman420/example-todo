@@ -1,6 +1,8 @@
 """
 AUTOR. Gkvn
 
+GLORY TO: ¡My Father GOD for helping me in everything!
+
 DATE CREATION: 21/02/2020
 """
 

@@ -11,10 +11,13 @@
 
 </head>
 <body>
-    {% block navbar %}
+    {% if not g.user  %}
         {% from '_macro.html' import navbar %}
             {{ navbar() }}
-    {% endblock navbar %}
+    {% endif %}
+
+    {% from '_macro.html' import message %}
+    {{ message() }}
 
 
     {% block content %}

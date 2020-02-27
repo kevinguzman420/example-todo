@@ -12,21 +12,21 @@ from app import db
 
 class User(db.Model, UserMixin):
 
-    __tablename__ = 'task_user'
+    __tablename__ = '_user'
 
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), nullable=False)
     email = db.Column(db.String(256), unique=True, nullable=False)
     password = db.Column(db.String(128), nullable=False)
     # This table has a relation with the table "UserCat":
-    usucat = db.relationship("UserCat", backref="task_user", lazy=False)
+    usucat = db.relationship("Task", backref="_user", lazy=False)
     
-    def __init__(self, name, email):
-        self.name = name
-        self.email = email
+    # def __init__(self, name, email):
+    #     self.name = name
+    #     self.email = email
 
-    def __repr__(self):
-        return f'<User {self.email}>'
+    # def __repr__(self):
+    #     return f'<User {self.email}>'
 
     def set_password(self, password):
         self.password = generate_password_hash(password)

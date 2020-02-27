@@ -1,3 +1,66 @@
+{% macro navbar() %}
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">To do</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{{ url_for('public.index') }}">Home <span class="sr-only">(current)</span></a>
+            </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('auth.logout') }}">Sign out</a>
+                </li>
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Actions
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ url_for('public.create_task')}}">Add Task</a>
+                <a class="dropdown-item" href="#">pendient</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ url_for('public.account_user') }}">Edit Account</a>
+            </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">username</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+        </div>
+    </nav>
+{% endmacro %}
+
+{% macro message() %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                {% if category == 'success' %}
+                    <div class="alert alert-dark alert-dismissible fade show" style="background-color: rgb(54, 54, 54); border: 1px solid rgb(71, 71, 180)">
+                        <button type="button" data-dismiss="alert" class="close" style="color: rgb(255, 0, 0);">&times;</button>
+                        <span style="color: rgb(47, 47, 218);">{{ message }}</span>
+                    </div>
+                {% elif category == 'error' %}
+                    <div class="alert alert-dark alert-dismissible fade show">
+                        <button type="button" data-dismiss="alert" class="close">&times;</button>
+                        <span style="color: red;">{{ message }}</span>
+                    </div>
+                {% elif category == 'warning' %}
+                    <div class="alert alert-warning alert-dismissible fade show">
+                        <button type="button" data-dismiss="alert" class="close">&times;</button>
+                        <span style="color: red;">{{ message }}</span>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+{% endmacro %}
+
 {% macro form(form) %}
     <div class="container container-signup">
         <div class="form-side-left">
@@ -8,7 +71,7 @@
             <div class="signinup">
                 <p class="s-left">Sign Up</p><p class="s-right">Sign In</p>
             </div>
-            <form action="">
+            <form action="" method="POST" data-toggle="validator">
                 <p class="links-sign">
                     <a class="signin" href="{{ url_for('auth.signin') }}">Sign In</a>
                     or
@@ -18,17 +81,17 @@
                 {% if form %}
                     <div>
                         <label for="username">USERNAME:</label> <br>
-                        <input type="text" placeholder="Enter your username" required>
+                        <input type="text" placeholder="Enter your username" name="username" required>
                     </div>
                 {% endif %}
                 <!-- Fin de la condición -->
                 <div>
-                    <label for="emal">EMAIL:</label><br>
-                    <input type="email" placeholder="example@domain.com" required>
+                    <label for="email">EMAIL:</label><br>
+                    <input type="email" placeholder="example@domain.com" name="email" required>
                 </div>
                 <div>
                     <label for="password">PASSWORD:</label><br>
-                    <input type="password" placeholder="********" required>
+                    <input type="password" placeholder="********" name="password" required>
                 </div>
                 <div class="check-password">
                     <a href="#">Forgot your password?</a>
@@ -39,42 +102,4 @@
             </form>
         </div>
     </div>
-{% endmacro %}
-
-{% macro navbar() %}
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-            <a class="navbar-brand" href="#">Gkvn</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-        
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="{{ url_for('public.index') }}">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="#">Sign Out</a>
-                </li>
-                <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Dropdown
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="{{ url_for('public.create_task')}}">Add Task</a>
-                    <a class="dropdown-item" href="#">pendient</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="{{ url_for('public.account_user') }}">Edit Account</a>
-                </div>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">USERNAME</a>
-                </li>
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            </div>
-        </nav>
 {% endmacro %}

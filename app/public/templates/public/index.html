@@ -4,61 +4,58 @@
 
 
 {% block content %}
-    
     <div class="container-sm  container-tasks">
         <table class="table table-dark">
             <thead>
-            <tr>
-                <th class="col-header-1" scope="col">Done</th>
-                <th class="col-header-2" scope="col">Name - Description</th>
-                <th class="col-header-3" scope="col">Date Start</th>
-                <th class="col-header-4" scope="col">Date End</th>
-                <th class="col-header-5" scope="col">Category</th>
-                <th class="col-header-6" scope="col">Priority</th>
-                <th class="col-header-7" scope="col">Edit</th>
-            </tr>
+                <tr>
+                    <th class="col-header-1" scope="col">Done</th>
+                    <th class="col-header-2" scope="col">Name - Description</th>
+                    <th class="col-header-3" scope="col">Date Start</th>
+                    <th class="col-header-4" scope="col">Date End</th>
+                    <th class="col-header-5" scope="col">Category</th>
+                    <th class="col-header-6" scope="col">Priority</th>
+                    <th class="col-header-7" scope="col">Edit</th>
+                </tr>
             </thead>
-            
-            {% for item in range(10) %}        
                 <tbody>
-                    <tr id="i-rows">
-                        <td id="i-col-done" scope="row">
-                            <input type="checkbox" aria-label="Checkbox for following text input">
-                        </td>
-                        <td id="i-col-info" scope="row" id="info-task" onclick="muestramensaje('{{ variable }}')">
-                            <div class="contenedor">
-                                <h6 class="i-table-info-title">{{ "Title" }}</h6>
-                                <p class="i-table-info-description">
-                                    <small>{{ "Description" }}</small>
+                    {% for task in tasks %}
+                        <tr id="i-rows">
+                            <td id="i-col-done" scope="row">
+                                <input type="checkbox" aria-label="Checkbox for following text input">
+                            </td>
+                            <td id="i-col-info" scope="row" id="info-task" onclick="muestramensaje('{{ variable }}')">
+                                <div class="contenedor">
+                                    <h6 class="i-table-info-title">{{ task.title }}</h6>
+                                    <p class="i-table-info-description">
+                                        <small>{{ task.description }}</small>
+                                    </p>
+                                </div>
+                            </td>
+                            <td id="i-col-date-start" scope="row">
+                                <p class="data-start">{{ task.date_create }}</p>
+                                <p class="data-start-info">
+                                    <small>{{ "Description info" }}</small>
                                 </p>
-                            </div>
-                        </td>
-                        <td id="i-col-date-start" scope="row">
-                            <p class="data-start">{{ "Date today"}}</p>
-                            <p class="data-start-info">
-                                <small>{{ "Description info" }}</small>
-                            </p>
-                        </td>
-                        <td id="i-col-date-end" scope="row">
-                            <p class="data-end">{{ "Date today" }}</p>
-                            <p class="data-end-info">
-                                <small>{{ "Description info" }}</small>
-                            </p>
-                        </td>
-                        <td id="i-col-deports" scope="row">
-                            <p class="deports-info">{{ "Deports" }}</p>
-                        </td>
-                        <td id="i-col-priority" scope="row">
-                            <p class="priority-info">{{ "High" }}</p>
-                        </td>
-                        <td id="i-col-delete-modify" scope="row">
-                            <button class="font-weight-bolder i-col-dm-btn-edit">Edit</button>
-                            <button class="font-weight-bolder i-col-dm-btn-delete">Delete</button>
-                        </td>
-                    </tr>
+                            </td>
+                            <td id="i-col-date-end" scope="row">
+                                <p class="data-end">{{ task.date_todo }}</p>
+                                <p class="data-end-info">
+                                    <small>{{ "Description info" }}</small>
+                                </p>
+                            </td>
+                            <td id="i-col-deports" scope="row">
+                                <p class="deports-info">{{ task.category.name_category }}</p>
+                            </td>
+                            <td id="i-col-priority" scope="row">
+                                <p class="priority-info">{{ task.priority.name_priority }}</p>
+                            </td>
+                            <td id="i-col-delete-modify" scope="row">
+                                <a href="#" class="font-weight-bolder i-col-dm-btn-edit">Edit</a>
+                                <a href="#" class="font-weight-bolder i-col-dm-btn-delete">Delete</a>
+                            </td>
+                        </tr>
+                    {% endfor %}
                 </tbody>
-            {% endfor %}
-
         </table>
     </div>
 {% endblock content %}
