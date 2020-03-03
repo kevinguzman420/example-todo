@@ -21,7 +21,7 @@
                     {% for task in tasks %}
                         <tr id="i-rows">
                             <td id="i-col-done" scope="row">
-                                <input type="checkbox" aria-label="Checkbox for following text input">
+                                <input type="checkbox" onclick="done_task('{{ task.id }}', '{{ task.done }}')" id="btn-done{{ task.id }}" aria-label="Checkbox for following text input">
                             </td>
                             <td id="i-col-info" scope="row" id="info-task" onclick="muestramensaje('{{ variable }}')">
                                 <div class="contenedor">
@@ -50,12 +50,17 @@
                                 <p class="priority-info">{{ task.priority.name_priority }}</p>
                             </td>
                             <td id="i-col-delete-modify" scope="row">
-                                <a href="#" class="font-weight-bolder i-col-dm-btn-edit">Edit</a>
-                                <a href="#" class="font-weight-bolder i-col-dm-btn-delete">Delete</a>
+                                <!-- Mandamos el id de task, para que EDIT_TASK, recupere los datos de la tarea especifica
+                                    y los mande a el formulario, para que puedan ser modificados: -->
+                                <a href="{{ url_for('public.edit_task', id_task=task.id) }}" class="font-weight-bolder i-col-dm-btn-edit">Edit</a>
+
+                                <a onclick="delete_task('{{ task.id }}')" href="" id="btn-delete{{ task.id }}" class="font-weight-bolder i-col-dm-btn-delete">Delete</a>
                             </td>
                         </tr>
                     {% endfor %}
                 </tbody>
         </table>
     </div>
+
+
 {% endblock content %}

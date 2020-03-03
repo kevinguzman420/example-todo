@@ -200,4 +200,6 @@ pip-selfcheck.json
 
 # End of https://www.gitignore.io/api/git,flask,python,virtualenv,visualstudiocode
 
+# From here is mine:
 *.mwb
+snippet.js

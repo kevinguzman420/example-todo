@@ -41,6 +41,10 @@ class Task(db.Model):
             db.session.add(self)
         db.session.commit()
 
+    @staticmethod
+    def get_by_id(id):
+        return Task.query.filter_by(id=id).first()
+
 
 class Category(db.Model):
     id = db.Column(db.Integer, primary_key=True)

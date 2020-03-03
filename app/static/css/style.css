@@ -173,7 +173,8 @@ body {
 
 /* ******************************************************************** */
 /* INICIO DE DISEÑO DE INDEX */
-.container-tasks {
+.container-tasks,
+.container-history {
     margin-top: 2em;
     padding: 0;
     margin-bottom: 0;
@@ -187,6 +188,7 @@ body {
 #i-col-done input {
     margin: 25% auto;
     width: 100%;
+    cursor: pointer;
 }
 #i-col-done,
 #i-col-info,

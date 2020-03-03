@@ -1,3 +1,4 @@
+// FROM: index.html/index.
 function muestramensaje(variable) {
     let dict = JSON.parse(variable);
     
@@ -8,8 +9,38 @@ function muestramensaje(variable) {
 }
 
 
+// Delete the tasks from the index: (index)
+function delete_task(id) {
+    const $btn_delete = document.getElementById(`btn-delete${id}`);
+    let response = confirm("Are you sure to delete this task");
+    if (response) {
+        // Mandar el id de la tarea por url:
+        const pagina = `http://127.0.0.1:5000/delete/task/${id}`;
+        $btn_delete.setAttribute("href", pagina);
+        // debugger
+    }
+}
+
+// done task from the index: (index)
+function done_task(id, task_done) {
+    let $checkbox_done = document.getElementById(`btn-done${id}`);
+    if (task_done == "False") {
+        // $checkbox_done.disabled = true;
+        // $checkbox_done.style.cursor = "auto";
+        // $checkbox_done.checked = true;
+        // Mandar el id de la tarea por url:
+        let pagina = `http://127.0.0.1:5000/done/task/${id}`;
+        window.location = pagina;
+    }
+    else {
+        alert("The task has been marked as done.")
+    }
+    
+}
+
 // ${image.links.download}  ${image.description}  ${image.alt_description}
 // http://placeimg.com/350/400/people
+// FROM: account_user
 if(window.location == "http://0.0.0.0:5000/user/account/ a ") {
     console.log(window.location);
     ( async () => {
@@ -85,3 +116,4 @@ if(window.location == "http://0.0.0.0:5000/user/account/ a ") {
 
     })();
 }
+

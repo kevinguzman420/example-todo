@@ -24,3 +24,9 @@ app = create_app()
 # def recreate_db():
 #     db.drop_all()
 #     db.create_all()
+
+
+#                                   .:START HERE:.
+# ESTOY ESTUDIANDO EL TUTORIAL, EN EL CUAL ME QUEDÉ EN LA LECCIÓN 7
+# https://j2logo.com/tutorial-flask-leccion-7-parametros-de-configuracion-proyecto/
+# TAMBIEN ESTOY TRATANDO DE QUE EL NOMBRE DEL USUARIO APARAZCA EN EL NAVBAR Y EN EL HISTORIAL DE TAREAS REALIZADAS/BORRADAS.

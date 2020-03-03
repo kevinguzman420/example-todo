@@ -6,59 +6,114 @@
         <div class="title-new-task">
             <h3>Create a new task</h3>
         </div>
-        <div class="form-new-task">
-            <form action="" method="POST">
-                <div class="form-title">
-                    <label for="title-task">Enter Title</label>
-                    <input type="text" name="title-task" required placeholder="Enter the title task">
-                </div>
-                <div class="form-description">
-                    <label for="">Enter a Litle Description</label>
-                    <textarea name="description-task" id="" cols="30" rows="10" name="description-task" required placeholder="Enter a description of task of remember the task"></textarea>
-                </div>
-                <div class="dates">
-                    <p><small>Provide the date</small></p>
-                    <div class="cont-date">
-                        <div>
-                            <label for="">Date Start</label>
-                            <input type="date" id="start" name="date-start-task" value="" min="2020-01-01" max="2030-12-31">
-                        </div>
-                        <div>
-                            <label for="">Date End</label>
-                            <input type="date" id="end" name="date-end-task" value="" min="2020-01-01" max="2030-12-31">
+            {% if flag %}
+                <form action="{{ url_for('public.edit_task', id_task=task.id, flag=flag) }}" method="POST">
+                    <div class="form-title">
+                        <label for="title-task">Enter Title</label>
+                        <input type="text" name="title-task" required placeholder="Enter the title task" value="{{ task.title }}">
+                    </div>
+                    <div class="form-description">
+                        <label for="">Enter a Litle Description</label>
+                        <textarea name="description-task" id="" cols="30" rows="10" name="description-task" required placeholder="Enter a description of task of remember the task">{{ task.description }}</textarea>
+                    </div>
+                    <div class="dates">
+                        <p><small>Provide the date</small></p>
+                        <div class="cont-date">
+                            <div>
+                                <label for="">Date Start</label>
+                                <input type="date" id="start" name="date-start-task" value="{{ task.date_create }}" min="2020-01-01" max="2030-12-31">
+                            </div>
+                            <div>
+                                <label for="">Date End</label>
+                                <input type="date" id="end" name="date-end-task" value="{{ task.date_todo }}" min="2020-01-01" max="2030-12-31">
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="dates">
-                    <div id="time">
-                        <label for="">Hour Start</label>
-                        <input type="time" name="hour-task" value="00:00">
-                    </div>
-                </div>
-                <div class="dates container-c-p">
-                    <div class="cont-cat-pri">
-                        <div class="category">
-                            <label for="">Category</label>
-                            <select name="category-task" id="">
-                                {% for category in categories %}
-                                    <option value="{{ category.name_category }}">{{ category.name_category }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="priority">
-                            <label for="">Priority</label>
-                            <select name="priority-task" id="">
-                                {% for priority in priorities %}
-                                    <option value="{{ priority.name_priority }}">{{ priority.name_priority }}</option>
-                                {% endfor %}
-                            </select>
+                    <div class="dates">
+                        <div id="time">
+                            <label for="">Hour Start</label>
+                            <input type="time" name="hour-task" value="{{ task.hour_todo }}">
                         </div>
                     </div>
-                </div>
-                <div class="cont-button">
-                    <button type="submit" id="button-create-task">Create Task</button>
-                </div>
-            </form>
+                    <div class="dates container-c-p">
+                        <div class="cont-cat-pri">
+                            <div class="category">
+                                <label for="">Category</label>
+                                <select name="category-task" id="">
+                                    {% for category in categories %}
+                                        <option value="{{ category.name_category }}">{{ category.name_category }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="priority">
+                                <label for="">Priority</label>
+                                <select name="priority-task" id="">
+                                    {% for priority in priorities %}
+                                        <option value="{{ priority.name_priority }}">{{ priority.name_priority }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-button">
+                        <button type="submit" id="button-create-task">Modify Task</button>
+                    </div>
+                </form>
+            <!-- ELSE -->
+            {% else %}
+                <form action="" method="POST">
+                    <div class="form-title">
+                        <label for="title-task">Enter Title</label>
+                        <input type="text" name="title-task" required placeholder="Enter the title task">
+                    </div>
+                    <div class="form-description">
+                        <label for="">Enter a Litle Description</label>
+                        <textarea name="description-task" id="" cols="30" rows="10" name="description-task" required placeholder="Enter a description of task of remember the task"></textarea>
+                    </div>
+                    <div class="dates">
+                        <p><small>Provide the date</small></p>
+                        <div class="cont-date">
+                            <div>
+                                <label for="">Date Start</label>
+                                <input type="date" id="start" name="date-start-task" value="" min="2020-01-01" max="2030-12-31">
+                            </div>
+                            <div>
+                                <label for="">Date End</label>
+                                <input type="date" id="end" name="date-end-task" value="" min="2020-01-01" max="2030-12-31">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="dates">
+                        <div id="time">
+                            <label for="">Hour Start</label>
+                            <input type="time" name="hour-task" value="00:00">
+                        </div>
+                    </div>
+                    <div class="dates container-c-p">
+                        <div class="cont-cat-pri">
+                            <div class="category">
+                                <label for="">Category</label>
+                                <select name="category-task" id="">
+                                    {% for category in categories %}
+                                        <option value="{{ category.name_category }}">{{ category.name_category }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="priority">
+                                <label for="">Priority</label>
+                                <select name="priority-task" id="">
+                                    {% for priority in priorities %}
+                                        <option value="{{ priority.name_priority }}">{{ priority.name_priority }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cont-button">
+                        <button type="submit" id="button-create-task">Create Task</button>
+                    </div>
+                </form>
+            {% endif %}
         </div>
     </div>
 
