@@ -9,7 +9,7 @@ def create_app():
     app = Flask(__name__)
     app.config["SECRET_KEY"] = "secret key"
 
-    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://kevinguzman:kevinguzman@127.0.0.1:3306/todolist"
+    app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+mysqlconnector://user_name:pass_name@host:port/database_name"
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     login_manager.init_app(app)
